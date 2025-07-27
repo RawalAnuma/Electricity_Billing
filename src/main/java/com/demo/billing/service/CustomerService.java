@@ -1,9 +1,9 @@
-package service;
+package com.demo.billing.service;
 
 import com.demo.billing.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.CustomerRepository;
+import com.demo.billing.repositories.CustomerRepository;
 import java.util.List;
 import java.util.Optional;
 

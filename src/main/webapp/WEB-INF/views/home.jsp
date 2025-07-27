@@ -3,9 +3,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>$</title>
+    <title>Home</title>
 </head>
 <body>
-
+<div>
+    <h1>Welcome to the Home Page</h1>
+    <p>This is a simple JSP page.</p>
+</div>
 </body>
 </html>

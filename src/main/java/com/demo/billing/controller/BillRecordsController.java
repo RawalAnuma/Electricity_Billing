@@ -4,8 +4,7 @@ import com.demo.billing.calculation.BillCalculation;
 import com.demo.billing.model.BillRecords;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.BillRecordService;
-
+import com.demo.billing.service.BillRecordService;
 import java.util.List;
 
 @RestController

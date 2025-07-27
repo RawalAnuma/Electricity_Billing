@@ -3,9 +3,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>$</title>
+    <title>Calculate Bill</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-
+<%@ include file="/WEB-INF/views/nav-bar.jsp" %>
+<h1> Calculate Electricity Bill</h1>
 </body>
 </html>

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "customer")
 public class Customer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
@@ -12,6 +13,10 @@ public class Customer {
     private String customerName;
     private int houseNumber;
     private double unitsConsumed;
+
+    public Customer(){
+
+    }
 
     public Customer(int customerId, String customerName, int houseNumber, double unitsConsumed){
         this.customerId = customerId;

@@ -15,6 +15,10 @@ public class BillRecords {
     private LocalDate billDate;
     private double billAmount;
 
+    public BillRecords(){
+
+    }
+
    public BillRecords(int customerId, double billAmount) {
         this.customerId = customerId;
         this.billAmount = billAmount;

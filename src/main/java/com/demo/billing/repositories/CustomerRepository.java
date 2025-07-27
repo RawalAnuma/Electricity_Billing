@@ -1,4 +1,4 @@
-package repositories;
+package com.demo.billing.repositories;
 
 import com.demo.billing.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -22,10 +22,10 @@ public class ViewController {
         return "calculateBill";
     }
 
-    @GetMapping("/showBills")
-    public String viewBillPage() {
-        return "bills";
-    }
+//    @GetMapping("/billRecords")
+//    public String viewBillPage() {
+//        return "bills";
+//    }
 
     @GetMapping("/about")
     public String aboutPage() {

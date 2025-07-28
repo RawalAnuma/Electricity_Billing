@@ -8,9 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class = "bg-gray-50 text-gray-800">
-<%@ include file="/WEB-INF/views/nav-bar.jsp" %>
+<%@ include file="/WEB-INF/views/navBar.jsp" %>
 <div class="max-w-6xl mx-auto px-6 py-8">
-    <h1 class="text-4xl font-bold mb-8 text-center text-navy-800">Customers List</h1>
+    <h1 class="text-4xl font-bold mb-8 text-center text-navy-800">Customers List Details</h1>
     <table class="table-auto w-full border-collapse border border-gray-400 text-center text-lg">
         <thead>
             <tr class="bg-blue-900 text-white">
@@ -21,13 +21,12 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="customer" items="${customer}">
+            <c:forEach var="cust" items="${customer}">
                 <tr class="text-gray-800">
-                    <td class="border px-4 py-2">${customer.customerId}</td>
-                    <td class="border px-4 py-2">${customer.customerName}</td>
-                    <td class="border px-4 py-2">${customer.houseNumber}</td>
-                    <td class="border px-4 py-2">${customer.unitsConsumed}</td>
-
+                    <td class="border px-4 py-2">${cust.customerId}</td>
+                    <td class="border px-4 py-2">${cust.customerName}</td>
+                    <td class="border px-4 py-2">${cust.houseNumber}</td>
+                    <td class="border px-4 py-2">${cust.unitsConsumed}</td>
                 </tr>
             </c:forEach>
         </tbody>

@@ -3,6 +3,7 @@ package com.demo.billing.controller;
 import com.demo.billing.calculation.BillCalculation;
 import com.demo.billing.model.BillRecords;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.demo.billing.service.BillRecordService;
 import java.util.List;
@@ -25,8 +26,9 @@ public class BillRecordsController {
     }
 
     @GetMapping("/allBills")
-    public List<BillRecords> getAllBillRecords() {
-        return billRecordService.getAllBillRecords();
+    public String getAllBillRecords(Model model) {
+        model.addAttribute("billRecords", billRecordService.getAllBillRecords());
+        return "bills";
     }
 
     @GetMapping("/highestPaying")

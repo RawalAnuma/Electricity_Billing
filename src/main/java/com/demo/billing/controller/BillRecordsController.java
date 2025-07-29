@@ -19,15 +19,16 @@ public class BillRecordsController {
     @Autowired
     private BillCalculation billCalculation;
 
-    @PostMapping("/bill")
-    public boolean generateBill(@RequestParam int customerId, @RequestParam double unitsConsumed) {
+    @GetMapping("/bill")
+    public String generateBill(int customerId, double unitsConsumed){
         double billAmount = billCalculation.calculateBill(unitsConsumed);
         BillRecords billRecords = new BillRecords(customerId, billAmount);
-        return billRecordService.insertBillRecord(billRecords);
+        billRecordService.insertBillRecord(billRecords);
+        return "calculateBill";
     }
 
     @GetMapping("/allBills")
-    public String getAllBillRecords(Model model) {
+    public String getAllBillRecords(Model model){
         model.addAttribute("billRecords", billRecordService.getAllBillRecords());
         return "bills";
     }

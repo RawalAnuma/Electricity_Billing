@@ -11,16 +11,19 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/customer")
-public class CustomerController {
+public class CustomerController{
 
     @Autowired
     private CustomerService customerService;
 
 
+
     @PostMapping
-    public boolean addCustomer(@RequestParam String customerName, @RequestParam int houseNumber, @RequestParam double unitsConsumed) {
+    public String addCustomer(@RequestParam String customerName, @RequestParam int houseNumber, @RequestParam double unitsConsumed) {
         Customer customer = new Customer(customerName, houseNumber, unitsConsumed);
-        return customerService.insertCustomer(customer);
+        customerService.insertCustomer(customer);
+        int customerId=customer.getCustomerId();
+        return "redirect:/billRecords/bill?customerId="+customerId + "&unitsConsumed="+ unitsConsumed;
     }
 
     @GetMapping("/all")
@@ -32,8 +35,8 @@ public class CustomerController {
 
     @GetMapping("/id")
     public int getCustomerId(@RequestParam String customerName, @RequestParam int houseNumber, @RequestParam double unitsConsumed){
-    Customer customer = new Customer(customerName, houseNumber, unitsConsumed);
-    Optional<Customer> optionalCustomer = customerService.getCustomerIdByNameAndHouseNumber(customer);
-    return optionalCustomer.orElseThrow(() -> new RuntimeException("Customer not found")).getCustomerId();
+        Customer customer = new Customer(customerName, houseNumber, unitsConsumed);
+        Optional<Customer> optionalCustomer = customerService.getCustomerIdByNameAndHouseNumber(customer);
+        return optionalCustomer.orElseThrow(() -> new RuntimeException("Customer not found")).getCustomerId();
     }
 }

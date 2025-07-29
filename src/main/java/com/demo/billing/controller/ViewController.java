@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-//@RequestMapping("/view")
 public class ViewController {
+
     @GetMapping("/home")
     public String viewHomePage(){
         return "home";
@@ -22,10 +22,10 @@ public class ViewController {
         return "calculateBill";
     }
 
-//    @GetMapping("/billRecords")
-//    public String viewBillPage() {
-//        return "bills";
-//    }
+   @GetMapping("/billRecords")
+    public String viewBillPage() {
+      return "bills";
+    }
 
     @GetMapping("/about")
     public String aboutPage() {

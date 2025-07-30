@@ -1,6 +1,7 @@
 package com.demo.billing.controller;
 
 
+import com.demo.billing.model.BillRecords;
 import com.demo.billing.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,17 @@ public class CustomerController{
         return "showCustomers";
     }
 
+    @PostMapping("/calculate")
+    public String calculateBill(@ModelAttribute Customer customer, Model model){
+        Customer savedCustomer = customerService.insertCustomer(customer);
+        double billAmount = customerService.calculateBill(customer.getUnitsConsumed());
+        BillRecords bill = new BillRecords();
+        bill.setBillAmount(billAmount);
+        bill.setCustomer(savedCustomer);
+        model.addAttribute("bill", bill);
+        return "home";
+
+    }
 
     @GetMapping("/id")
     public int getCustomerId(@RequestParam String customerName, @RequestParam int houseNumber, @RequestParam double unitsConsumed){

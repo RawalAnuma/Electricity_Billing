@@ -1,6 +1,5 @@
 package com.demo.billing.controller;
 
-import com.demo.billing.calculation.BillCalculation;
 import com.demo.billing.model.BillRecords;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,20 +15,16 @@ public class BillRecordsController {
     @Autowired
     private BillRecordService billRecordService;
 
-    @Autowired
-    private BillCalculation billCalculation;
 
-    @GetMapping("/bill")
-    public String generateBill(int customerId, double unitsConsumed){
-        double billAmount = billCalculation.calculateBill(unitsConsumed);
-        BillRecords billRecords = new BillRecords(customerId, billAmount);
+    @PostMapping
+    public String saveBill(@ModelAttribute BillRecords billRecords){
         billRecordService.insertBillRecord(billRecords);
-        return "calculateBill";
+        return "Successfully saved!";
     }
 
     @GetMapping("/allBills")
-    public String getAllBillRecords(Model model){
-        model.addAttribute("billRecords", billRecordService.getAllBillRecords());
+    public String getAllBillRecords(@ModelAttribute BillRecords billRecords){
+         billRecordService.getAllBillRecords();
         return "bills";
     }
 

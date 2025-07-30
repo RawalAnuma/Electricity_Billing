@@ -13,9 +13,24 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public boolean insertCustomer(Customer customer) {
-        customerRepository.save(customer);
-        return true;
+    public Customer insertCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    public double calculateBill(double unitsConsumed) {
+        double totalBill = 0;
+        double remainingUnits = 0;
+
+        if (unitsConsumed <= 10) {
+            totalBill = 10 * unitsConsumed;
+        } else if (unitsConsumed <= 30) {
+            remainingUnits = unitsConsumed - 10;
+            totalBill = (remainingUnits * (250.0 / 20.0)) + 100;
+        } else {
+            remainingUnits = unitsConsumed - 20 - 10;
+            totalBill = (remainingUnits * 2) + 100 + 250;
+        }
+        return totalBill;
     }
 
     public List<Customer> getAllCustomers() {

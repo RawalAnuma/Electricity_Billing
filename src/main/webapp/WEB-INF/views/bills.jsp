@@ -24,7 +24,7 @@
             <c:forEach var="bill" items="${billRecords}">
                 <tr class="text-gray-800">
                     <td class="border px-4 py-2">${bill.billId}</td>
-                    <td class="border px-4 py-2">${bill.customerId}</td>
+                    <td class="border px-4 py-2">${bill.customer.customerId}</td>
                     <td class="border px-4 py-2">${bill.billDate}</td>
                     <td class="border px-4 py-2">${bill.billAmount}</td>
                 </tr>

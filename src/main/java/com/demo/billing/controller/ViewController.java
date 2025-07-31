@@ -27,8 +27,5 @@ public class ViewController {
       return "bills";
     }
 
-    @GetMapping("/about")
-    public String aboutPage() {
-        return "about";
-    }
+
 }

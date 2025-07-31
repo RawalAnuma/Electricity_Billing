@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.demo.billing.service.BillRecordService;
 
+import java.util.List;
+
 
 @Controller
 @RequestMapping("/billRecords")
@@ -19,12 +21,13 @@ public class BillRecordsController {
     @PostMapping
     public String saveBill(@ModelAttribute BillRecords billRecords){
         billRecordService.insertBillRecord(billRecords);
-        return "Successfully saved!";
+        return "redirect:/billRecords/allBills";
     }
 
     @GetMapping("/allBills")
-    public String getAllBillRecords(@ModelAttribute BillRecords billRecords){
-         billRecordService.getAllBillRecords();
+    public String getAllBillRecords(Model model){
+        List<BillRecords> billList = billRecordService.getAllBillRecords();
+        model.addAttribute("billRecords", billList);
         return "bills";
     }
 

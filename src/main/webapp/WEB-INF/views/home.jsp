@@ -18,7 +18,7 @@
         <form action="${pageContext.request.contextPath}/customer/calculate" method="post" class="space-y-4">
             <div class="flex items-center">
                 <label class="w-40 font-medium text-lg">Customer Name:</label>
-                <input type="text" name="name" class="flex-1 border border-gray-300 p-2 rounded text-lg" required>
+                <input type="text" name="customerName" class="flex-1 border border-gray-300 p-2 rounded text-lg" required>
             </div>
             <div class="flex items-center">
                 <label class="w-40 font-medium text-lg">House number:</label>
@@ -35,7 +35,7 @@
         </section>
     </div>
     <!-- Right: Bill Overview -->
-    <div  class="w-full md:w-1/2">
+    <div class="w-full md:w-1/2">
         <%@ include file="/WEB-INF/views/billOverview.jsp" %>
     </div>
 </div>

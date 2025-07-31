@@ -40,7 +40,7 @@ public class CustomerController{
         BillRecords bill = new BillRecords();
         bill.setBillAmount(billAmount);
         bill.setCustomer(savedCustomer);
-        model.addAttribute("bill", bill);
+        model.addAttribute("billRecords", bill);
         return "home";
 
     }
